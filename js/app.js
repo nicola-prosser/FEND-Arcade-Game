@@ -62,7 +62,7 @@ class Player {
         this.x = 0;
     }
 
-    // Check for player reaching top of canvas and winning the game
+    // if the op is reached the game is won
     if (this.y < 0) {
         this.x = 200;
         this.y = 380;
@@ -94,8 +94,10 @@ let allEnemies = [];
 const enemy = new Enemy(20, 60, 170);
 const enemy2 = new Enemy(20, 135, 100);
 const enemy3 = new Enemy(20, 220, 70);
+const enemy4 = new Enemy(20, 135, 200);
+const enemy5 = new Enemy(20, 220, 300);
 
-allEnemies.push(enemy, enemy2, enemy3);
+allEnemies.push(enemy, enemy2, enemy3, enemy4, enemy5);
 
 // Place the player object in a variable called player
 const player = new Player(200, 375);
