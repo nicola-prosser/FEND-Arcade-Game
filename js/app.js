@@ -31,11 +31,13 @@ class Enemy {
        //Detect collisions with the player
        //The player png has a transparent boarder 63px above his head, 32 below
        //each side there is 17px. this muse be taken into account for a collision.
-       if (player.x < this.x + 70 && player.x + 34 > this.x &&
-          player.y < this.y + 25 && 30 + player.y > this.y) {
-            //collision has been detected and the player is moved back to the start point
+       if (player.x < this.x + 70 && player.x + 17 > this.x &&
+          player.y < this.y + 30 && 30 + player.y > this.y) {
+            //collision has been detected and the player is moved back to the start point with no points
             player.x = 200;
             player.y = 380;
+            playerPoints = 0;
+            pointCounter.innerHTML = `${playerPoints} points.`;
           };
     }
 
