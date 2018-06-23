@@ -1,18 +1,13 @@
-//Player can win points
+//Player can win points when they reach the water declare required variables below
 let playerPoints = 0;
 const pointCounter = document.querySelector(".points");
 
 // Enemies our player must avoid
-
 class Enemy {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
     constructor(x, y, speed) {
       this.x = x;
       this.y = y;
       this.speed = speed;
-      // The image/sprite for our enemies, this uses
-      // a helper we've provided to easily load images
       this.sprite = 'images/enemy-bug.png';
     }
 
@@ -48,10 +43,7 @@ class Enemy {
 
 };
 
-
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+// Declare player class
 class Player {
   constructor(x, y) {
     this.x = x;
@@ -62,6 +54,7 @@ class Player {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     };
   update (dt) {
+    //check the player is on the board
     if (this.y > 380) {
         this.y = 380;
     }
@@ -82,7 +75,7 @@ class Player {
     }
   };
   handleInput(direction){
-
+    //when keys are pressed the player will move to the next block. update x and y to show this move
     switch (direction) {
 
         case 'left':
@@ -101,7 +94,7 @@ class Player {
   };
 };
 // Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
+// Enemy objects in an array called allEnemies
 let allEnemies = [];
 
 const enemy = new Enemy(20, 60, 170);
@@ -129,7 +122,7 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
-//points
+//player points
 
 function  winPoints(){
   playerPoints ++;
